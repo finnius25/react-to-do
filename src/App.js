@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [todo, setTodo] = useState({ value: "" });
+  const [todoList, setTodoList] = useState([]);
+
+  const handleTodoInput = (e) => {
+    setTodo({ value: e.target.value });
+  };
+
+  const handleTodoSumbit = (e) => {
+    e.preventDefault();
+    setTodoList((prev) => [...prev, todo.value]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>What's your goals today?</h1>
+      <form onSubmit={handleTodoSumbit}>
+        <input
+          className="todo"
+          type="text"
+          value={todo.value}
+          onChange={handleTodoInput}
+        />
+      </form>
     </div>
   );
-}
+};
 
 export default App;
