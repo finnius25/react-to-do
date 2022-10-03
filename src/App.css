@@ -20,7 +20,7 @@
   color: white;
 }
 
-.todo {
+.todo-input {
   background: none;
   outline: none;
   font-size: 1.5rem;
@@ -30,12 +30,17 @@
 }
 
 .todoListElementContainer {
-  display: flex;
-  flex-direction: column;
   width: 15rem;
-}
-.todoListElement {
-  list-style: none;
   margin-bottom: 1rem;
+  display: flex;
+}
+.todoListElementContainer li {
+  list-style: none;
   font-size: 1.5rem;
+  width: 100%;
+}
+.todoListElementContainer button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
