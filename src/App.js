@@ -7,6 +7,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const App = () => {
   const [todo, setTodo] = useState({ value: "", id: "" });
   const [todoList, setTodoList] = useState([]);
+  const [error, setError] = useState(false)
 
   const handleTodoInput = (e) => {
     setTodo({ value: e.target.value, id: nanoid() });
@@ -15,14 +16,22 @@ const App = () => {
 // Add todo
   const handleTodoSumbit = (e) => {
     e.preventDefault();
-    setTodoList((prev) => [todo, ...prev]);
-    setTodo({value: "", id: ""})
+    if (todo.value === "" || todo.value.length > 20 || todo.value.length < 3){
+      setError(true)
+    } else {
+      setTodoList((prev) => [todo, ...prev]);
+      setTodo({value: "", id: ""})
+      setError(false)
+    }
   };
 
 // Delete todo
   const deleteHandler = (item) => {
     setTodoList(prev => prev.filter((el) => el.id !== item.id ))
   }
+
+  // Error Message
+const errorMessage = <h6>Invalid item. Try again.</h6>
 
 const todoListElement = todoList.map((item) => {
   return (
@@ -46,7 +55,7 @@ const todoListElement = todoList.map((item) => {
           onChange={handleTodoInput}
         />
       </form>
-      <br />
+        {error ? (errorMessage) : ("")}
       <ul className="todoListElementContainer" >
         {todoListElement}
       </ul>

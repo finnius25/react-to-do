@@ -27,12 +27,14 @@
   border: none;
   border-bottom: 0.1rem white solid;
   margin: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .todoListElementContainer {
   overflow: auto;
   height: 10rem;
   padding-right: 1.5rem;
+  margin: 2rem 0;
 }
 
 .todoListContainer {
