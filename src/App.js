@@ -1,18 +1,24 @@
 import { useState } from "react";
 import "./App.css";
+import { nanoid } from "nanoid";
 
 const App = () => {
-  const [todo, setTodo] = useState({ value: "" });
+  const [todo, setTodo] = useState({ value: "", id: "" });
   const [todoList, setTodoList] = useState([]);
 
   const handleTodoInput = (e) => {
-    setTodo({ value: e.target.value });
+    setTodo({ value: e.target.value, id: nanoid() });
   };
 
   const handleTodoSumbit = (e) => {
     e.preventDefault();
-    setTodoList((prev) => [...prev, todo.value]);
+    setTodoList((prev) => [...prev, todo]);
+    setTodo({value: "", id: ""})
   };
+
+const todoListElement = todoList.map((item) => {
+  return <li className="todoListElement" key={item.id}>{item.value}</li>
+})
 
   return (
     <div className="App">
@@ -25,6 +31,10 @@ const App = () => {
           onChange={handleTodoInput}
         />
       </form>
+      <br />
+      <ul className="todoListElementContainer">
+        {todoListElement}
+      </ul>
     </div>
   );
 };

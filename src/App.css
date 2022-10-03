@@ -28,3 +28,14 @@
   border-bottom: 0.1rem white solid;
   margin: 2rem;
 }
+
+.todoListElementContainer {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+}
+.todoListElement {
+  list-style: none;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
