@@ -32,7 +32,7 @@
 
 .todoListElementContainer {
   overflow: auto;
-  height: 10rem;
+  height: 20rem;
   padding-right: 1.5rem;
   margin: 2rem 0;
 }
@@ -46,7 +46,7 @@
   list-style: none;
   font-size: 1.5rem;
   width: 100%;
-  overflow: auto;
+  overflow: scroll;
   margin: 0 0.4rem;
   padding-bottom: 0.2rem;
 }
@@ -54,4 +54,5 @@
   background: none;
   border: none;
   cursor: pointer;
+  margin-right: 0.5rem;
 }

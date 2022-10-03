@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const App = () => {
   const [todo, setTodo] = useState({ value: "", id: "" });
@@ -30,14 +30,20 @@ const App = () => {
     setTodoList(prev => prev.filter((el) => el.id !== item.id ))
   }
 
+// Complete todo
+  const completeHandler = (item) => {
+    setTodoList(prev => prev.filter((el) => el.id !== item.id ))
+  }
+
   // Error Message
 const errorMessage = <h6>Invalid item. Try again.</h6>
 
 const todoListElement = todoList.map((item) => {
   return (
     <div className="todoListContainer" key={item.id}>
-      <li className="todoListElement">{item.value}</li>
+      <li className="todoListElement" >{item.value}</li>
       <button onClick={() => deleteHandler(item)}><FontAwesomeIcon icon={faTrash}/></button>
+      <button onClick={() => completeHandler(item)}><FontAwesomeIcon icon={faCheck}/></button>
     </div>
   )
 })
