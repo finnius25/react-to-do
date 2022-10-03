@@ -30,16 +30,25 @@
 }
 
 .todoListElementContainer {
+  overflow: auto;
+  height: 10rem;
+  padding-right: 1.5rem;
+}
+
+.todoListContainer {
   width: 15rem;
   margin-bottom: 1rem;
   display: flex;
 }
-.todoListElementContainer li {
+.todoListContainer li {
   list-style: none;
   font-size: 1.5rem;
   width: 100%;
+  overflow: auto;
+  margin: 0 0.4rem;
+  padding-bottom: 0.2rem;
 }
-.todoListElementContainer button {
+.todoListContainer button {
   background: none;
   border: none;
   cursor: pointer;

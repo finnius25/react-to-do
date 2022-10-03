@@ -26,7 +26,7 @@ const App = () => {
 
 const todoListElement = todoList.map((item) => {
   return (
-    <div className="todoListElementContainer" key={item.id}>
+    <div className="todoListContainer" key={item.id}>
       <li className="todoListElement">{item.value}</li>
       <button onClick={() => deleteHandler(item)}><FontAwesomeIcon icon={faTrash}/></button>
     </div>
@@ -47,7 +47,7 @@ const todoListElement = todoList.map((item) => {
         />
       </form>
       <br />
-      <ul>
+      <ul className="todoListElementContainer" >
         {todoListElement}
       </ul>
     </div>
