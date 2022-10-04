@@ -42,13 +42,16 @@
   margin-bottom: 1rem;
   display: flex;
 }
-.todoListContainer li {
+.todoListElement {
   list-style: none;
   font-size: 1.5rem;
   width: 100%;
   overflow: scroll;
   margin: 0 0.4rem;
   padding-bottom: 0.2rem;
+  outline: none;
+  border: none;
+  background: none;
 }
 .todoListContainer button {
   background: none;
