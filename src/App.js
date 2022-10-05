@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
-  const [todo, setTodo] = useState({value: "", id: "", isComplete: false});
+  const [todo, setTodo] = useState({ value: "", id: "", isComplete: false });
   const [todoList, setTodoList] = useState([]);
   const [error, setError] = useState(false);
-  const [displayCompleted, setDisplayCompleted] = useState(false)
-  const [completedList, setCompletedList] = useState([])
+  const [displayCompleted, setDisplayCompleted] = useState(false);
+  const [completedList, setCompletedList] = useState([]);
 
   const handleTodoInput = (e) => {
     setTodo({ value: e.target.value, id: nanoid(), isComplete: false });
@@ -35,14 +35,14 @@ const App = () => {
   // Complete todo
   const completeHandler = (item) => {
     todoList.map((el) => {
-      if (el.id === item.id) {
-        item.isComplete = true
-        setCompletedList(prev => [...prev, item])
+        if (el.id === item.id) {
+        item.isComplete = true;
+        setCompletedList((prev) => [...prev, item]);
       }
-    })
+      return completedList
+    });
     setTodoList((prev) => prev.filter((el) => el.id !== item.id));
   };
-
 
   // Error Message
   const errorMessage = <h6>Invalid item. Try again.</h6>;
@@ -54,7 +54,7 @@ const App = () => {
           <FontAwesomeIcon icon={faCheck} />
         </button>
 
-          <li className="todoListElement">{item.value}</li>
+        <li className="todoListElement">{capitalizeFirstLetter(item.value)}</li>
 
         <button onClick={() => deleteHandler(item)}>
           <FontAwesomeIcon icon={faTrash} />
@@ -63,20 +63,24 @@ const App = () => {
     );
   });
 
-  console.log(completedList)
 
   // Show Completed List
   const showCompleted = () => {
-    setDisplayCompleted(prev => !prev)
-  }
+    setDisplayCompleted((prev) => !prev);
+  };
 
   const isCompleteListElement = completedList.map((item) => {
     return (
-      <div>
-        <li>{item.value}</li>
-      </div>
+        <div className="completedListContainer">
+          <li>{capitalizeFirstLetter(item.value)}</li>
+        </div>
     )
-  })
+  });
+
+  // Capitalize funtion
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   return (
     <div className="App">
@@ -91,9 +95,17 @@ const App = () => {
       </form>
       {error ? errorMessage : ""}
       <ul className="todoListElementContainer">{todoListElement}</ul>
-      <button type="button" className="showCompletedBtn" onClick={showCompleted}>Show Completed</button>
+      <button
+        type="button"
+        className="showCompletedBtn"
+        onClick={showCompleted}
+      >
+        {displayCompleted ? ("Hide Completed") : ("Show Completed")}
+      </button>
       <br />
-      {displayCompleted && <ul className="isCompletedDisplay">{isCompleteListElement}</ul>}
+      {displayCompleted && (
+        <ul className="isCompletedDisplay">{completedList.length > 0 ? (isCompleteListElement) : (<h6>No completed tasks yet</h6>)}</ul>
+      )}
     </div>
   );
 };

@@ -32,7 +32,7 @@
 
 .todoListElementContainer {
   overflow: auto;
-  height: 20rem;
+  max-height: 20rem;
   padding-right: 1.5rem;
   margin: 2rem 0;
 }
@@ -58,4 +58,24 @@
   border: none;
   cursor: pointer;
   margin-right: 0.5rem;
+}
+
+.showCompletedBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.isCompletedDisplay {
+  max-height: 5rem;
+  width: 15rem;
+  overflow: scroll;
+}
+
+.completedListContainer {
+
+}
+.completedListContainer li {
+  text-decoration: line-through;
+  list-style: none;
 }
