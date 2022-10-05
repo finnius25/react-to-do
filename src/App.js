@@ -18,7 +18,7 @@ const App = () => {
   // Add todo
   const handleTodoSumbit = (e) => {
     e.preventDefault();
-    if (todo.value === "" || todo.value.length > 20 || todo.value.length < 3) {
+    if (todo.value === "" || todo.value.length > 50 || todo.value.length < 3) {
       setError(true);
     } else {
       setTodoList((prev) => [todo, ...prev]);
