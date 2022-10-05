@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/https//:finnius25.github.io/react-to-do/static/css/main.aba97866.css",
-    "main.js": "/https//:finnius25.github.io/react-to-do/static/js/main.4705a9fb.js",
-    "static/media/bg-image.jpg": "/https//:finnius25.github.io/react-to-do/static/media/bg-image.f01fdafeacc3d654a11e.jpg",
-    "index.html": "/https//:finnius25.github.io/react-to-do/index.html",
-    "main.aba97866.css.map": "/https//:finnius25.github.io/react-to-do/static/css/main.aba97866.css.map",
-    "main.4705a9fb.js.map": "/https//:finnius25.github.io/react-to-do/static/js/main.4705a9fb.js.map"
+    "main.css": "/react-to-do/static/css/main.6db29f93.css",
+    "main.js": "/react-to-do/static/js/main.4705a9fb.js",
+    "static/media/bg-image.jpg": "/react-to-do/static/media/bg-image.f01fdafeacc3d654a11e.jpg",
+    "index.html": "/react-to-do/index.html",
+    "main.6db29f93.css.map": "/react-to-do/static/css/main.6db29f93.css.map",
+    "main.4705a9fb.js.map": "/react-to-do/static/js/main.4705a9fb.js.map"
   },
   "entrypoints": [
-    "static/css/main.aba97866.css",
+    "static/css/main.6db29f93.css",
     "static/js/main.4705a9fb.js"
   ]
 }
